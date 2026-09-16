@@ -9,6 +9,8 @@ import RecipeList from './pages/Annuaire.tsx';
 import Recipe from './pages/Recipe.tsx'
 import Erreurs from './pages/erreurs.tsx'
 import Annuaire from './pages/Annuaire.tsx';
+import Connexion from './pages/Connexion.tsx';
+import UserDetail from './pages/UserDetail.tsx';
 
 const Layout = () => (
   <>
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
       {
         path: "/recipe/:id",
         element: <Recipe/>
+      },
+      {
+        path: "/connexion",
+        element: <Connexion/>
+      },
+      {
+        path: "/user/profil",
+        element: <UserDetail/>
       },
       {
         path: "*",

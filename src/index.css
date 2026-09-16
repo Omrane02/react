@@ -109,3 +109,108 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+/* Header */
+.header {
+  border-bottom: 1px solid var(--border);
+}
+
+.header-nav {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 16px 0;
+}
+
+.header-nav a {
+  color: var(--text-h);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.header-nav a:hover {
+  color: var(--accent);
+}
+
+/* Cartes recette / utilisateur */
+.recipe-grid,
+.user-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 24px;
+}
+
+.recipe-card,
+.user-card {
+  width: 200px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--code-bg);
+  text-align: center;
+}
+
+.recipe-card img,
+.user-card img {
+  border-radius: 6px;
+}
+
+/* Formulaire de connexion */
+.login-form {
+  max-width: 320px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.login-form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.login-form input {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font: inherit;
+}
+
+.login-form button {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.form-error {
+  color: #e5484d;
+}
+
+/* Profil utilisateur */
+.profile-card {
+  max-width: 480px;
+  margin: 32px auto;
+  padding: 24px;
+  text-align: left;
+}
+
+.profile-card img {
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 16px;
+}
+
+/* Page d'erreur */
+.error-page {
+  padding: 48px 24px;
+}

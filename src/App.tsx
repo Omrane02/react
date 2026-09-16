@@ -13,9 +13,9 @@ function App() {
           {isValid && <HelloWorld name="Omrane Riahi" />}
         </div>
 
-        <div>
+        <div className="recipe-grid">
           {recipes.map((recipe) => (
-            <div key={recipe.id}>
+            <div className="recipe-card" key={recipe.id}>
               <img src={recipe.image} width={100}></img>
               <p><Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link></p>
               <p>Temps de preparation : {recipe.prepTimeMinutes} minutes</p>
