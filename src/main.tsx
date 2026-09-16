@@ -11,6 +11,7 @@ import Erreurs from './pages/erreurs.tsx'
 import Annuaire from './pages/Annuaire.tsx';
 import Connexion from './pages/Connexion.tsx';
 import UserDetail from './pages/UserDetail.tsx';
+import Profil from './pages/Profil.tsx';
 
 const Layout = () => (
   <>
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/user/profil",
         element: <UserDetail/>
+      },
+      {
+        path: "/profil/:id",
+        element: <Profil/>
       },
       {
         path: "*",

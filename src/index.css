@@ -210,6 +210,14 @@ code {
   margin: 0 auto 16px;
 }
 
+.profile-card--simple {
+  text-align: center;
+}
+
+.profile-card--simple h1 {
+  margin: 0;
+}
+
 /* Page d'erreur */
 .error-page {
   padding: 48px 24px;
