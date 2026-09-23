@@ -4,6 +4,7 @@ import authReducer from './reducers/auth'
 import loadingReducer from './reducers/loading'
 import postsReducer from './reducers/posts'
 import commentsReducer from './reducers/comments'
+import favorisReducer from './reducers/favoris'
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     loading: loadingReducer,
     posts: postsReducer,
     comments: commentsReducer,
+    favoris: favorisReducer,
   },
 })
 

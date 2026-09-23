@@ -1,9 +1,8 @@
 import './App.css'
 import HelloWorld from './components/HelloWorld'
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import type { Recipe, RecipesResponse } from './types/recipe';
-import FavoriteButton from './components/FavoriteButton';
+import recipesData from './data/recipes.json';
+import QuoteOfTheDay from './components/QuoteOfTheDay';
 
 function App() {
   let isValid: boolean = true;
@@ -37,6 +36,8 @@ function App() {
         <div>
           {isValid && <HelloWorld name="Omrane Riahi" />}
         </div>
+
+        <QuoteOfTheDay />
 
         <div className="recipe-grid">
           {recipes.map((recipe) => (
