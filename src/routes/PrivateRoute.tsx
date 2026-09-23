@@ -9,8 +9,7 @@ interface PrivateRouteProps {
 
 const PrivateRoute = ({ children }: PrivateRouteProps) => {
   const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
-
-  // Redirection automatique vers /connexion si l'utilisateur n'est pas authentifié
+  
   return isAuthenticated ? <>{children}</> : <Navigate to="/connexion" replace />;
 };
 

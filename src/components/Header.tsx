@@ -15,18 +15,13 @@ const Header = () => {
 
   return (
     <header style={{
-      display: 'flex',
+      display: 'fl',
       justifyContent: 'space-between',
       alignItems: 'center',
       padding: '1rem 2rem',
       borderBottom: '1px solid #e0e0e0',
       backgroundColor: '#fff'
     }}>
-      <div className="logo">
-        <Link to="/" style={{ textDecoration: 'none', fontWeight: 'bold', fontSize: '1.2rem', color: '#000' }}>
-           Gourmandise & Partage
-        </Link>
-      </div>
 
       <nav>
         <ul style={{ display: 'flex', gap: '1.5rem', listStyle: 'none', margin: 0, padding: 0, alignItems: 'center' }}>

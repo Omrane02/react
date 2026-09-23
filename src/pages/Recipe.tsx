@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import recipesData from "../data/recipes.json";
+import FavoriteButton from "../components/FavoriteButton";
 
 function Recipe() {
     const { id } = useParams();
@@ -18,6 +19,7 @@ function Recipe() {
         <>
             <h1>{recipe.name}</h1>
             <img src={recipe.image} width={300} />
+            <FavoriteButton recipeId={recipe.id} />
             <p>Temps de préparation : {recipe.prepTimeMinutes} minutes</p>
             <p>Temps de cuisson : {recipe.cookTimeMinutes} minutes</p>
 
