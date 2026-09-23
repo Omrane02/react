@@ -8,9 +8,10 @@ interface GuestRouteProps{
 }
 
 const GuestRoute = ({ children }: GuestRouteProps) => {
-    const loggedUser = useSelector ((state: RootState) => state.auth.isAuthenticated);
+    // const loggedUser = useSelector ((state: RootState) => state.auth.isAuthenticated);
 
-    return loggedUser ? <Navigate to ="/" replace /> : <>{children}</>;
+    // return loggedUser ? <Navigate to ="/" replace /> : <>{children}</>;
+    return children
 };
 
 export default GuestRoute;
