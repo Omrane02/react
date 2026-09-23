@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import type { RootState, AppDispatch } from "../store/store"
 import type { Post } from "../types/post";
 import { setPosts, addPostLocal, removePostLocal } from "../store/reducers/posts";
+import "./Blog.css";
 
 interface PostsResponse{
     posts: Post[];
@@ -68,10 +69,11 @@ function Blog(){
     };
 
     return (
-        <>
-            <h1>Blog</h1>
+        <div className="blog">
+            <h1 className="blog-title">Blog</h1>
 
-            <form onSubmit={handleAddPost}>
+            <form className="blog-form" onSubmit={handleAddPost}>
+                <h2>Publier un article</h2>
                 <input
                     type="text"
                     placeholder="Titre"
@@ -86,16 +88,35 @@ function Blog(){
                 <button type="submit">Publier</button>
             </form>
 
-            {posts.map((post)=>(
-                <div key={post.id}>
-                    <h2><Link to ={`/posts/${post.id}`}>{post.title}</Link></h2>
-                    <p>Tags: {post.tags.join(", ")}</p>
-                    <p>Réactions : {post.reactions.likes} 👍 / {post.reactions.dislikes} 👎</p>
-                    <p> Vues : {post.views}</p>
-                    <button onClick={() => handleDeletePost(post.id)}>Supprimer</button>
-                </div>
-            ))}
-            </>
+            <div className="blog-list">
+                {posts.map((post)=>(
+                    <article className="blog-card" key={post.id}>
+                        <h2 className="blog-card-title">
+                            <Link to={`/posts/${post.id}`}>{post.title}</Link>
+                        </h2>
+
+                        {post.tags.length > 0 && (
+                            <div className="blog-tags">
+                                {post.tags.map((tag) => (
+                                    <span className="blog-tag" key={tag}>#{tag}</span>
+                                ))}
+                            </div>
+                        )}
+
+                        <div className="blog-card-footer">
+                            <div className="blog-stats">
+                                <span>👍 {post.reactions.likes}</span>
+                                <span>👎 {post.reactions.dislikes}</span>
+                                <span>👁 {post.views} vues</span>
+                            </div>
+                            <button className="blog-delete" onClick={() => handleDeletePost(post.id)}>
+                                Supprimer
+                            </button>
+                        </div>
+                    </article>
+                ))}
+            </div>
+        </div>
     );
 }
 

@@ -25,7 +25,6 @@ function UserList() {
 
     
     const filteredUsers = users.filter((user) =>
-        `${user.firstName} ${user.lastName}`.toLowerCase().includes(search.toLowerCase()) ||
         user.username?.toLowerCase().includes(search.toLowerCase())
     );
 
@@ -36,7 +35,7 @@ function UserList() {
             {/* Barre de recherche */}
             <input
                 type="text"
-                placeholder="Rechercher par nom, prénom..."
+                placeholder="Rechercher par nom d'utilisateur..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 style={{
@@ -56,8 +55,7 @@ function UserList() {
                         style={{ border: "1px solid #e0e0e0", padding: "15px", borderRadius: "8px", textAlign: "center" }}
                     >
                         <img src={user.image} alt={user.username} width={64} style={{ borderRadius: "50%" }} />
-                        <p><strong>{user.firstName} {user.lastName}</strong></p>
-                        <p style={{ color: "#666", fontSize: "0.9rem" }}>@{user.username}</p>
+                        <p><strong>@{user.username}</strong></p>
                         
                         <Link 
                             to={`/annuaire/${user.id}`}

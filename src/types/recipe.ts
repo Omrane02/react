@@ -1,20 +1,25 @@
 export interface Recipe {
-  id: number;
-  name: string;
-  image: string;
-  prepTimeMinutes: number;
-  cookTimeMinutes: number;
-  ingredients: string[];
-  instructions: string[];
-  servings?: number;
-  difficulty?: string;
-  cuisine?: string;
-  rating?: number;
+    id: number;
+    name: string;
+    ingredients: string[];
+    instructions: string[];
+    prepTimeMinutes: number;
+    cookTimeMinutes: number;
+    servings: number;
+    difficulty: string;
+    cuisine: string;
+    caloriesPerServing: number;
+    tags: string[];
+    userId: number;
+    image: string;
+    rating: number;
+    reviewCount: number;
+    mealType: string[];
 }
 
 export interface RecipesResponse {
-  recipes: Recipe[];
-  total: number;
-  skip: number;
-  limit: number;
+    recipes: Recipe[];
+    total: number;
+    skip: number;
+    limit: number;
 }

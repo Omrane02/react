@@ -38,7 +38,6 @@ function UserDetail() {
 
             <img src={user.image} alt={user.username} width={128} />
             <p>Nom d'utilisateur : {user.username}</p>
-            <p>Email : {user.email}</p>
         </div>
     )
 }

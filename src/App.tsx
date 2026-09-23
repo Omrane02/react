@@ -1,8 +1,10 @@
 import './App.css'
+import { useEffect, useState } from 'react';
 import HelloWorld from './components/HelloWorld'
 import { Link } from 'react-router-dom';
-import recipesData from './data/recipes.json';
 import QuoteOfTheDay from './components/QuoteOfTheDay';
+import FavoriteButton from './components/FavoriteButton';
+import type { Recipe, RecipesResponse } from './types/recipe';
 
 function App() {
   let isValid: boolean = true;
