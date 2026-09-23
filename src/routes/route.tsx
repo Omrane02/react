@@ -1,16 +1,15 @@
-import Header from "../components/Header";
-import { Outlet } from "react-router-dom";
-import App from "../App";
-import UserList from "../pages/UserList";
-import Recipe from "../pages/Recipe";
-import Connexion from "../pages/Connexion";
-import UserDetail from "../pages/UserDetail";
-import Profil from "../pages/Profil";
-import Erreurs from "../pages/erreurs";
-import PrivateRoute from "./PrivateRoute";
-import GuestRoute from "./GuestRoute";
-import Blog from "../pages/Blog";
-import PostDetail from "../pages/PostDetail";
+import Header from "../components/Header"
+import { Outlet } from "react-router-dom"
+import App from "../App"
+import UserList from "../pages/UserList"
+import Recipe from "../pages/Recipe"
+import Connexion from "../pages/Connexion"
+import UserDetail from "../pages/UserDetail"
+import Profil from "../pages/Profil"
+import Erreurs from "../pages/erreurs"
+import PrivateRoute from "./PrivateRoute"
+import GuestRoute from "./GuestRoute"
+import Favoris from "../pages/favoris"
 
 const Layout = () => (
   <>

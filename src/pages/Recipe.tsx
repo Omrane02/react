@@ -1,15 +1,39 @@
 import { Link, useParams } from "react-router-dom";
-import recipesData from "../data/recipes.json";
+import { useEffect, useState } from "react";
+import type { Recipe as RecipeType } from "../types/recipe";
 import FavoriteButton from "../components/FavoriteButton";
 
 function Recipe() {
     const { id } = useParams();
-    const recipe = recipesData.recipes.find((r) => r.id === Number(id));
+    const [recipe, setRecipe] = useState<RecipeType | null>(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
-    if (!recipe) {
+    useEffect(() => {
+        setLoading(true);
+        setError(null);
+
+        fetch(`https://dummyjson.com/recipes/${id}`)
+            .then((res) => {
+                if (!res.ok) throw new Error("Recette introuvable.");
+                return res.json();
+            })
+            .then((data: RecipeType) => {
+                setRecipe(data);
+                setLoading(false);
+            })
+            .catch((err: Error) => {
+                setError(err.message);
+                setLoading(false);
+            });
+    }, [id]);
+
+    if (loading) return <p>Chargement...</p>;
+
+    if (error || !recipe) {
         return (
             <>
-                <p>Recette introuvable.</p>
+                <p>{error ?? "Recette introuvable."}</p>
                 <Link to="/">Retour à l'accueil</Link>
             </>
         );
@@ -19,7 +43,15 @@ function Recipe() {
         <>
             <h1>{recipe.name}</h1>
             <img src={recipe.image} width={300} />
-            <FavoriteButton recipeId={recipe.id} />
+            <FavoriteButton
+                recipe={{
+                    id: recipe.id,
+                    name: recipe.name,
+                    image: recipe.image,
+                    prepTimeMinutes: recipe.prepTimeMinutes,
+                    cookTimeMinutes: recipe.cookTimeMinutes,
+                }}
+            />
             <p>Temps de préparation : {recipe.prepTimeMinutes} minutes</p>
             <p>Temps de cuisson : {recipe.cookTimeMinutes} minutes</p>
 
