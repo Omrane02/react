@@ -35,7 +35,7 @@ function Connexion() {
             setLoading(false)
 
             // Redirection vers le profil protégé
-            navigate("/profile")
+            navigate("/profil/:id")
         } catch (err: any) {
             setLoading(false)
             if (err.response && err.response.data && err.response.data.message) {

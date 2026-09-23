@@ -56,7 +56,7 @@ const routes = [
 
       },
       {
-        path: "/user/profil",
+        path: "/profile",
         element: <UserDetail/>
       },
       {
