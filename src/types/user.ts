@@ -11,18 +11,18 @@ export interface Company {
   title: string;
 }
 
-export interface User {
-  id: number;
-  firstName: string;
-  lastName: string;
-  username: string;
-  email: string;
-  image: string;
-  role?: string;
-  phone?: string;
-  age?: number;
-  gender?: string;
-  birthDate?: string;
-  address?: Address;
-  company?: Company;
+export interface User{
+    id: number;
+    firstName: string;
+    lastName: string;
+    username: string;
+    email: string;
+    phone: string;
+    age: number;
+    gender: 'male' | 'female' | string;
+    birthDate: string;
+    image: string;
+    role: 'admin' | 'user' | string;
+    address?: UserAddress;
+    company?: UserCompany;
 }
