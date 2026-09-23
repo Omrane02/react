@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import GuestRoute from "./GuestRoute";
 import Blog from "../pages/Blog";
 import PostDetail from "../pages/PostDetail";
+import Favoris from "../pages/favoris";
 
 const Layout = () => (
   <>

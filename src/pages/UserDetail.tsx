@@ -37,32 +37,8 @@ function UserDetail() {
             </Link>
 
             <img src={user.image} alt={user.username} width={128} />
-            <h1>{user.firstName} {user.lastName}</h1>
             <p>Nom d'utilisateur : {user.username}</p>
             <p>Email : {user.email}</p>
-            {user.phone && <p>Telephone : {user.phone}</p>}
-            {user.age && <p>Age : {user.age}</p>}
-            {user.gender && <p>Genre : {user.gender}</p>}
-            {user.birthDate && <p>Date de naissance : {user.birthDate}</p>}
-            {user.role && <p>Role : {user.role}</p>}
-
-            {user.address && (
-                <>
-                    <h2>Adresse</h2>
-                    <p>{user.address.address}</p>
-                    <p>{user.address.city}, {user.address.postalCode}</p>
-                    {user.address.country && <p>{user.address.country}</p>}
-                </>
-            )}
-
-            {user.company && (
-                <>
-                    <h2>Entreprise</h2>
-                    <p>Nom : {user.company.name}</p>
-                    <p>Departement : {user.company.department}</p>
-                    <p>Poste : {user.company.title}</p>
-                </>
-            )}
         </div>
     )
 }
