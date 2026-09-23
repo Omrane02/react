@@ -7,11 +7,12 @@ interface PrivateRouteProps {
   children: ReactNode;
 }
 
-const PrivateRoute = ({ children }: PrivateRouteProps) => {
-  const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
-
-  // Redirection automatique vers /connexion si l'utilisateur n'est pas authentifié
-  return isAuthenticated ? <>{children}</> : <Navigate to="/connexion" replace />;
+const PrivateRoute =({children}: PrivateRouteProps) => {
+    const loggedUser = useSelector((state: RootState) => state.auth.isAuthenticated);
+    const loading = useSelector((state: RootState)=> state.loading.value)
+    if (loading) return <div>Loading ...</div>
+    return loggedUser ? <> {children}</> : <Navigate to="/" replace />;
+    
 };
 
 export default PrivateRoute;

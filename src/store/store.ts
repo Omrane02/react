@@ -2,14 +2,16 @@ import { configureStore } from '@reduxjs/toolkit'
 import userReducer from './reducers/user'
 import authReducer from './reducers/auth'
 import loadingReducer from './reducers/loading'
-import favorisReducer from './reducers/favoris'
+import postsReducer from './reducers/posts'
+import commentsReducer from './reducers/comments'
 
 export const store = configureStore({
   reducer: {
     user: userReducer,
     auth: authReducer,
     loading: loadingReducer,
-    favoris: favorisReducer,
+    posts: postsReducer,
+    comments: commentsReducer,
   },
 })
 

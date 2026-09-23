@@ -60,6 +60,14 @@ const routes = [
         </PrivateRoute>
       },
       {
+        path: "/posts",
+        element: <Blog/>
+      },
+      {
+        path: "/posts/:id",
+        element: <PostDetail/>
+      },
+      {
         path: "*",
         element: <Erreurs />,
       },
