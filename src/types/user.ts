@@ -1,14 +1,14 @@
-export interface UserAddress {
-    address: string;
-    city: string;
-    postalCode: string;
-    country: string;
+export interface Address {
+  address: string;
+  city: string;
+  postalCode: string;
+  country?: string;
 }
 
-export interface UserCompany{
-    name: string;
-    department: string;
-    title: string;
+export interface Company {
+  department: string;
+  name: string;
+  title: string;
 }
 
 export interface User{

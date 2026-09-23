@@ -15,41 +15,49 @@ import PostDetail from "../pages/PostDetail";
 const Layout = () => (
   <>
     <Header />
-    <Outlet/>
+    <Outlet />
   </>
 )
 
 const routes = [
   {
-    element: <Layout/>,
-    children :[
-  
+    element: <Layout />,
+    children: [
       {
         path: "/",
-        element:  <App/>,
+        element: <App />,
       },
       {
         path: "/annuaire",
-        element: <UserList/>,
+        element: <UserList />,
       },
-
+      {
+        path: "/annuaire/:id",
+        element: <UserDetail />,
+      },
       {
         path: "/recipe/:id",
-        element: <Recipe/>
+        element: <Recipe />,
       },
       {
         path: "/connexion",
-        element: <GuestRoute><Connexion/>
-        </GuestRoute>
-        
+        element: (
+          <GuestRoute>
+            <Connexion />
+          </GuestRoute>
+        ),
       },
       {
-        path: "/user/profil",
-        element: <UserDetail/>
+        path: "/profil",
+        element: (
+          <PrivateRoute>
+            <Profil />
+          </PrivateRoute>
+        ),
       },
       {
-        path: "/profil/:id",
-        element: <PrivateRoute><Profil/>
+        path: "/favoris",
+        element: <PrivateRoute><Favoris/>
         </PrivateRoute>
       },
       {
@@ -62,10 +70,10 @@ const routes = [
       },
       {
         path: "*",
-        element: <Erreurs/>
-      }
-    ]
-  }
+        element: <Erreurs />,
+      },
+    ],
+  },
 ]
 
-export default routes;
+export default routes

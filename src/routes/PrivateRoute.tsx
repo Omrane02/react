@@ -3,9 +3,8 @@ import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import type { RootState } from "../store/store";
 
-
 interface PrivateRouteProps {
-    children: ReactNode;
+  children: ReactNode;
 }
 
 const PrivateRoute =({children}: PrivateRouteProps) => {
@@ -16,4 +15,4 @@ const PrivateRoute =({children}: PrivateRouteProps) => {
     
 };
 
-export default PrivateRoute
+export default PrivateRoute;
