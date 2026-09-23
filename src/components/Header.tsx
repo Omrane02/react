@@ -24,7 +24,7 @@ const Header = () => {
     }}>
       <div className="logo">
         <Link to="/" style={{ textDecoration: 'none', fontWeight: 'bold', fontSize: '1.2rem', color: '#000' }}>
-           Gourmandise & Partage
+           Catalogue de recettes
         </Link>
       </div>
 
