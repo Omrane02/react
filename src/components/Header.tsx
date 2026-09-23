@@ -6,6 +6,7 @@ function Header() {
             <ul className="header-nav">
                 <li><Link to="/">Home</Link></li>
                 <li><Link to= "/annuaire">Annuaire</Link></li>
+                <li><Link to="/posts">Blog</Link></li>
                 <li><Link to="/connexion">Connexion</Link></li>
             </ul>
         </nav>

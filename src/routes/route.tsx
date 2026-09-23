@@ -9,6 +9,8 @@ import Profil from "../pages/Profil";
 import Erreurs from "../pages/erreurs";
 import PrivateRoute from "./PrivateRoute";
 import GuestRoute from "./GuestRoute";
+import Blog from "../pages/Blog";
+import PostDetail from "../pages/PostDetail";
 
 const Layout = () => (
   <>
@@ -49,6 +51,14 @@ const routes = [
         path: "/profil/:id",
         element: <PrivateRoute><Profil/>
         </PrivateRoute>
+      },
+      {
+        path: "/posts",
+        element: <Blog/>
+      },
+      {
+        path: "/posts/:id",
+        element: <PostDetail/>
       },
       {
         path: "*",

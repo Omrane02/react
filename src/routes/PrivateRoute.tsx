@@ -9,11 +9,11 @@ interface PrivateRouteProps {
 }
 
 const PrivateRoute =({children}: PrivateRouteProps) => {
-    // const loggedUser = useSelector((state: RootState) => state.auth.isAuthenticated);
-    // const loading = useSelector((state: RootState)=> state.loading.value)
-    // if (loading) return <div>Loading ...</div>
-    // return loggedUser ? <> {children}</> : <Navigate to="/" replace />;
-    return children;
+    const loggedUser = useSelector((state: RootState) => state.auth.isAuthenticated);
+    const loading = useSelector((state: RootState)=> state.loading.value)
+    if (loading) return <div>Loading ...</div>
+    return loggedUser ? <> {children}</> : <Navigate to="/" replace />;
+    
 };
 
 export default PrivateRoute
