@@ -1,4 +1,4 @@
-import type { User } from './user'
+import type { User } from './user';
 
 export interface LoginCredentials {
   username: string;
@@ -7,5 +7,5 @@ export interface LoginCredentials {
 
 export interface LoginResponse extends User {
   token: string;
-  refreshToken: string;
+  refreshToken?: string;
 }
