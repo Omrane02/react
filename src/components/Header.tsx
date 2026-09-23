@@ -15,13 +15,18 @@ const Header = () => {
 
   return (
     <header style={{
-      display: 'fl',
+      display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
       padding: '1rem 2rem',
       borderBottom: '1px solid #e0e0e0',
       backgroundColor: '#fff'
     }}>
+      <div className="logo">
+        <Link to="/" style={{ textDecoration: 'none', fontWeight: 'bold', fontSize: '1.2rem', color: '#000' }}>
+           Gourmandise & Partage
+        </Link>
+      </div>
 
       <nav>
         <ul style={{ display: 'flex', gap: '1.5rem', listStyle: 'none', margin: 0, padding: 0, alignItems: 'center' }}>
@@ -29,7 +34,7 @@ const Header = () => {
             <Link to="/" style={{ textDecoration: 'none', color: '#333' }}>Accueil</Link>
           </li>
           <li>
-            <Link to="/users" style={{ textDecoration: 'none', color: '#333' }}>Membres</Link>
+            <Link to="/annuaire" style={{ textDecoration: 'none', color: '#333' }}>Membres</Link>
           </li>
           <li>
             <Link to="/posts" style={{ textDecoration: 'none', color: '#333' }}>Blog</Link>
@@ -41,7 +46,7 @@ const Header = () => {
                 <Link to="/favoris" style={{ textDecoration: 'none', color: '#333' }}>Mes Favoris</Link>
               </li>
               <li>
-                <Link to="/profile" style={{ textDecoration: 'none', fontWeight: '600', color: '#d4af37' }}>
+                <Link to="/profil" style={{ textDecoration: 'none', fontWeight: '600', color: '#d4af37' }}>
                   {user ? `${user.firstName}` : 'Mon Profil'}
                 </Link>
               </li>

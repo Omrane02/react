@@ -1,68 +1,57 @@
-import Header from "../components/Header";
-import { Outlet } from "react-router-dom";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import type { AppDispatch } from "../store/store";
-import { setLoading } from "../store/reducers/loading";
-import App from "../App";
-import UserList from "../pages/UserList";
-import Recipe from "../pages/Recipe";
-import Connexion from "../pages/Connexion";
-import UserDetail from "../pages/UserDetail";
-import Profil from "../pages/Profil";
-import Favoris from "../pages/favoris";
-import Erreurs from "../pages/erreurs";
-import PrivateRoute from "./PrivateRoute";
-import GuestRoute from "./GuestRoute";
+import Header from "../components/Header"
+import { Outlet } from "react-router-dom"
+import App from "../App"
+import UserList from "../pages/UserList"
+import Recipe from "../pages/Recipe"
+import Connexion from "../pages/Connexion"
+import UserDetail from "../pages/UserDetail"
+import Profil from "../pages/Profil"
+import Erreurs from "../pages/erreurs"
+import PrivateRoute from "./PrivateRoute"
+import GuestRoute from "./GuestRoute"
 
-const Layout = () => {
-  const dispatch = useDispatch<AppDispatch>();
-
-  useEffect(() => {
-    // TODO: replace with a real auth check (verify token, fetch current user, etc.)
-    // then dispatch(login(user)) if valid.
-    dispatch(setLoading(false));
-  }, [dispatch]);
-
-  return (
-    <>
-      <Header />
-      <Outlet/>
-    </>
-  );
-}
+const Layout = () => (
+  <>
+    <Header />
+    <Outlet />
+  </>
+)
 
 const routes = [
   {
-    element: <Layout/>,
-    children :[
-
+    element: <Layout />,
+    children: [
       {
         path: "/",
-        element:  <App/>,
+        element: <App />,
       },
       {
         path: "/annuaire",
-        element: <UserList/>,
+        element: <UserList />,
+      },
+      {
+        path: "/annuaire/:id",
+        element: <UserDetail />,
       },
       {
         path: "/recipe/:id",
-        element: <Recipe/>
+        element: <Recipe />,
       },
       {
         path: "/connexion",
-        element: <GuestRoute><Connexion/>
-        </GuestRoute>
-
+        element: (
+          <GuestRoute>
+            <Connexion />
+          </GuestRoute>
+        ),
       },
       {
-        path: "/profile",
-        element: <UserDetail/>
-      },
-      {
-        path: "/profil/:id",
-        element: <PrivateRoute><Profil/>
-        </PrivateRoute>
+        path: "/profil",
+        element: (
+          <PrivateRoute>
+            <Profil />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/favoris",
@@ -71,10 +60,10 @@ const routes = [
       },
       {
         path: "*",
-        element: <Erreurs/>
-      }
-    ]
-  }
+        element: <Erreurs />,
+      },
+    ],
+  },
 ]
 
-export default routes;
+export default routes
