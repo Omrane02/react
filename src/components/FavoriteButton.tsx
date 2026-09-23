@@ -1,19 +1,19 @@
 import { useSelector, useDispatch } from "react-redux";
 import type { RootState, AppDispatch } from "../store/store";
-import { toggleFavori } from "../store/reducers/favoris";
+import { toggleFavori, type FavoriRecipe } from "../store/reducers/favoris";
 
 interface FavoriteButtonProps {
-  recipeId: number;
+  recipe: FavoriRecipe;
 }
 
-function FavoriteButton({ recipeId }: FavoriteButtonProps) {
+function FavoriteButton({ recipe }: FavoriteButtonProps) {
   const dispatch = useDispatch<AppDispatch>();
   const isFavori = useSelector((state: RootState) =>
-    state.favoris.ids.includes(recipeId)
+    state.favoris.items.some((r) => r.id === recipe.id)
   );
 
   return (
-    <button onClick={() => dispatch(toggleFavori(recipeId))}>
+    <button onClick={() => dispatch(toggleFavori(recipe))}>
       {isFavori ? "★ Retirer des favoris" : "☆ Ajouter aux favoris"}
     </button>
   );

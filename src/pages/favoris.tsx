@@ -1,25 +1,21 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import type { RootState } from "../store/store";
-import recipesData from "../data/recipes.json";
 
 function Favoris() {
-  const favoriIds = useSelector((state: RootState) => state.favoris.ids);
+  const favoris = useSelector((state: RootState) => state.favoris.items);
 
-  const favoriRecipes = recipesData.recipes.filter((r) =>
-    favoriIds.includes(r.id)
-  );
-
-  if (favoriRecipes.length === 0) {
+  if (favoris.length === 0) {
     return <p>Vous n'avez aucune recette en favoris.</p>;
   }
 
   return (
     <ul>
-      {favoriRecipes.map((recipe) => (
+      {favoris.map((recipe) => (
         <li key={recipe.id}>
           <img src={recipe.image} width={60} />
           <Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link>
+          <p>Préparation : {recipe.prepTimeMinutes} min — Cuisson : {recipe.cookTimeMinutes} min</p>
         </li>
       ))}
     </ul>
