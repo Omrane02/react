@@ -1,7 +1,7 @@
 import { Navigate, useLocation } from "react-router-dom";
 import usersData from "../data/users.json"
 
-function User(){
+function UserDetail(){
     const location = useLocation();
     const userId = (location.state as { userId?: number } | null)?.userId
     const user = usersData.users.find((u) => u.id === userId)
@@ -35,4 +35,4 @@ function User(){
     )
 }
 
-export default User
+export default UserDetail
