@@ -56,7 +56,15 @@ function Recipe() {
         <>
             <h1>{recipe.name}</h1>
             <img src={recipe.image} alt={recipe.name} width={300} />
-            <FavoriteButton recipeId={recipe.id} />
+            <FavoriteButton
+                recipe={{
+                    id: recipe.id,
+                    name: recipe.name,
+                    image: recipe.image,
+                    prepTimeMinutes: recipe.prepTimeMinutes,
+                    cookTimeMinutes: recipe.cookTimeMinutes,
+                }}
+            />
 
             <p>Cuisine : {recipe.cuisine}</p>
             <p>Difficulté : {recipe.difficulty}</p>

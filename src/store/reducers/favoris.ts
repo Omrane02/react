@@ -1,26 +1,33 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import type { Recipe } from "../../types/recipe";
+
+export type FavoriRecipe = Pick<
+  Recipe,
+  "id" | "name" | "image" | "prepTimeMinutes" | "cookTimeMinutes"
+>;
 
 interface FavorisState {
-  ids: number[];
+  items: FavoriRecipe[];
 }
-const initialState: FavorisState = {
-  ids: [],
- };
 
-   const favorisSlice = createSlice({
-     name: "favoris",
-      initialState,
+const initialState: FavorisState = {
+  items: [],
+};
+
+const favorisSlice = createSlice({
+  name: "favoris",
+  initialState,
   reducers: {
-    toggleFavori: (state, action: PayloadAction<number>) => {
-      const id = action.payload;
-      if (state.ids.includes(id)) {
-        state.ids = state.ids.filter((favId) => favId !== id);
+    toggleFavori: (state, action: PayloadAction<FavoriRecipe>) => {
+      const exists = state.items.some((r) => r.id === action.payload.id);
+      if (exists) {
+        state.items = state.items.filter((r) => r.id !== action.payload.id);
       } else {
-        state.ids.push(id);
+        state.items.push(action.payload);
       }
     },
     removeFavori: (state, action: PayloadAction<number>) => {
-      state.ids = state.ids.filter((favId) => favId !== action.payload);
+      state.items = state.items.filter((r) => r.id !== action.payload);
     },
   },
 });
