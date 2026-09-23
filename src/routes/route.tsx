@@ -54,6 +54,11 @@ const routes = [
         ),
       },
       {
+        path: "/favoris",
+        element: <PrivateRoute><Favoris/>
+        </PrivateRoute>
+      },
+      {
         path: "*",
         element: <Erreurs />,
       },
