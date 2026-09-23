@@ -9,6 +9,7 @@ import Profil from "../pages/Profil"
 import Erreurs from "../pages/erreurs"
 import PrivateRoute from "./PrivateRoute"
 import GuestRoute from "./GuestRoute"
+import Favoris from "../pages/favoris"
 
 const Layout = () => (
   <>
