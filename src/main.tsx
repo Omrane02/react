@@ -10,7 +10,15 @@ import { Provider } from 'react-redux';
 import { setUsers } from './store/reducers/user.ts';
 import { logout, setUser } from './store/reducers/auth.ts';
 import { setLoading } from './store/reducers/loading.ts';
+import {io, Socket} from "socket.io-client"
 
+
+const URL = 'http://localhost:4001';
+const socket:Socket = io(URL)
+
+socket.on("FromApi", data => {
+  console.log(data)
+})
 
 interface UsersResponse {
   users: UserType[];
